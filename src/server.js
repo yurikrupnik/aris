@@ -22,11 +22,20 @@ import schema from './data/schema';
 import Router from './routes';
 import assets from './assets';
 import { port, auth, analytics } from './config';
+import mongoose from 'mongoose';
 
 import './book';
 
 const server = global.server = express();
+const databaseUrl =
+  process.env.MONGOLAB_URI ||
+  process.env.MONGOHQ_URL ||
+  'mongodb://localhost/aris-db';
 
+// import { databaseUrl } from './env';
+mongoose.connect(databaseUrl);
+
+// export default db;
 //
 // Tell any CSS tooling (such as Material UI) to use all vendor prefixes if the
 // user agent is not known.

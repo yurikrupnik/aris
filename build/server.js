@@ -86,11 +86,11 @@ module.exports =
   
   var _jsonwebtoken2 = _interopRequireDefault(_jsonwebtoken);
   
-  var _server = __webpack_require__(127);
+  var _server = __webpack_require__(128);
   
   var _server2 = _interopRequireDefault(_server);
   
-  var _prettyError = __webpack_require__(126);
+  var _prettyError = __webpack_require__(127);
   
   var _prettyError2 = _interopRequireDefault(_prettyError);
   
@@ -112,21 +112,29 @@ module.exports =
   
   var _config = __webpack_require__(13);
   
+  var _mongoose = __webpack_require__(122);
+  
+  var _mongoose2 = _interopRequireDefault(_mongoose);
+  
   __webpack_require__(29);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
-  /**
-   * React Starter Kit (https://www.reactstarterkit.com/)
-   *
-   * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
-   *
-   * This source code is licensed under the MIT license found in the
-   * LICENSE.txt file in the root directory of this source tree.
-   */
+  var server = global.server = (0, _express2.default)(); /**
+                                                          * React Starter Kit (https://www.reactstarterkit.com/)
+                                                          *
+                                                          * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
+                                                          *
+                                                          * This source code is licensed under the MIT license found in the
+                                                          * LICENSE.txt file in the root directory of this source tree.
+                                                          */
   
-  var server = global.server = (0, _express2.default)();
+  var databaseUrl = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/aris-db';
   
+  // import { databaseUrl } from './env';
+  _mongoose2.default.connect(databaseUrl);
+  
+  // export default db;
   //
   // Tell any CSS tooling (such as Material UI) to use all vendor prefixes if the
   // user agent is not known.
@@ -747,7 +755,7 @@ module.exports =
   
   var _bluebird2 = _interopRequireDefault(_bluebird);
   
-  var _nodeFetch = __webpack_require__(122);
+  var _nodeFetch = __webpack_require__(123);
   
   var _nodeFetch2 = _interopRequireDefault(_nodeFetch);
   
@@ -2454,7 +2462,7 @@ module.exports =
     value: true
   });
   
-  var _pg = __webpack_require__(125);
+  var _pg = __webpack_require__(126);
   
   var _pg2 = _interopRequireDefault(_pg);
   
@@ -2571,11 +2579,11 @@ module.exports =
   
   var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
   
-  var _passport = __webpack_require__(123);
+  var _passport = __webpack_require__(124);
   
   var _passport2 = _interopRequireDefault(_passport);
   
-  var _passportFacebook = __webpack_require__(124);
+  var _passportFacebook = __webpack_require__(125);
   
   var _db = __webpack_require__(39);
   
@@ -6413,34 +6421,40 @@ module.exports =
 /* 122 */
 /***/ (function(module, exports) {
 
-  module.exports = require("node-fetch");
+  module.exports = require("mongoose");
 
 /***/ }),
 /* 123 */
 /***/ (function(module, exports) {
 
-  module.exports = require("passport");
+  module.exports = require("node-fetch");
 
 /***/ }),
 /* 124 */
 /***/ (function(module, exports) {
 
-  module.exports = require("passport-facebook");
+  module.exports = require("passport");
 
 /***/ }),
 /* 125 */
 /***/ (function(module, exports) {
 
-  module.exports = require("pg");
+  module.exports = require("passport-facebook");
 
 /***/ }),
 /* 126 */
 /***/ (function(module, exports) {
 
-  module.exports = require("pretty-error");
+  module.exports = require("pg");
 
 /***/ }),
 /* 127 */
+/***/ (function(module, exports) {
+
+  module.exports = require("pretty-error");
+
+/***/ }),
+/* 128 */
 /***/ (function(module, exports) {
 
   module.exports = require("react-dom/server");
