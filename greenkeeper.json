@@ -1,0 +1,21 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "build/package.json",
+        "package.json",
+        "src/components/App/package.json",
+        "src/components/ContentPage/package.json",
+        "src/components/ErrorPage/package.json",
+        "src/components/Feedback/package.json",
+        "src/components/Footer/package.json",
+        "src/components/Header/package.json",
+        "src/components/Link/package.json",
+        "src/components/Navigation/package.json",
+        "src/components/NotFoundPage/package.json",
+        "src/components/TextBox/package.json",
+        "src/core/fetch/package.json"
+      ]
+    }
+  }
+}
